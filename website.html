@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonny Horizon Travel Agency | Memories that never fade</title>
+    <link rel="icon" type="image/jpeg" href="../logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:  #1d3e6e;
+            --teal:  #1a8fc1;
+            --green: #7ab934;
+            --gold:  #f9c414;
+            --light: #f4f9fd;
+            --white: #ffffff;
+            --dark:  #1a1a2e;
+            --muted: #6c757d;
+            --border:#dee2e6;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: #333; background: var(--white); }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.10); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 84px; }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo-img { height: 70px; width: auto; }
+        .brand-text h1 { font-size: 1.15rem; color: var(--navy); line-height: 1.1; }
+        .brand-text p  { font-size: 0.68rem; color: var(--teal); font-style: italic; }
+        .brand-slogan {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal));
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sloganShine 2.4s linear infinite, sloganPulse 1.8s ease-in-out infinite;
+            font-weight: 700;
+        }
+        @keyframes sloganShine {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        @keyframes sloganPulse {
+            0%, 100% { filter: drop-shadow(0 0 0 rgba(249,196,20,0)); }
+            50% { filter: drop-shadow(0 0 6px rgba(249,196,20,0.55)); }
+        }
+        .nav-links { display: flex; gap: 4px; align-items: center; }
+        .nav-links a { padding: 8px 14px; font-family: 'Montserrat',sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); border-radius: 4px; transition: 0.2s; }
+        .nav-links a:hover { background: var(--navy); color: var(--white); }
+        .nav-btn { background: var(--gold) !important; color: var(--navy) !important; border-radius: 20px !important; padding: 8px 20px !important; }
+        .nav-btn:hover { background: var(--teal) !important; color: var(--white) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
+
+        /* HERO */
+        /* HERO */
+        .hero { min-height: 92vh; background: linear-gradient(135deg, var(--navy) 0%, #0d5fa3 45%, var(--teal) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px; }
+        .hero-content { max-width: 800px; }
+        .hero-img { width: 100%; max-width: 480px; height: 260px; object-fit: cover; border-radius: 16px; margin-bottom: 28px; display: block; margin-left: auto; margin-right: auto; }
+        .hero-badge { display: inline-block; background: rgba(249,196,20,0.18); border: 1px solid var(--gold); color: var(--gold); font-family: 'Montserrat',sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; margin-bottom: 24px; }
+        .hero h2 { font-size: clamp(2rem,5vw,3.8rem); color: var(--white); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero h2 span { color: var(--gold); }
+        .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 36px; line-height: 1.8; }
+        .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 32px; border-radius: 30px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 20px rgba(249,196,20,0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,196,20,0.5); }
+        .enquiry-cta { background: #e0b22a; box-shadow: 0 4px 14px rgba(224,178,42,0.24); }
+        .enquiry-cta:hover { box-shadow: 0 8px 20px rgba(224,178,42,0.3); }
+        .btn-outline { background: transparent; color: var(--white); padding: 14px 32px; border-radius: 30px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.95rem; border: 2px solid rgba(255,255,255,0.6); cursor: pointer; transition: 0.2s; }
+        .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+        /* SECTIONS */
+        .section { padding: 80px 40px; }
+        .section-alt { background: var(--light); }
+        .section-dark { background: var(--navy); color: var(--white); }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label { display: inline-block; font-family: 'Montserrat',sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+        .section-dark .section-label { color: var(--gold); }
+        .section-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+        .section-dark .section-title { color: var(--white); }
+        .section-subtitle { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.8; }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.75); }
+        .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 16px 0 32px; }
+
+        /* ABOUT */
+        .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+        .info-card { background: var(--white); border-radius: 12px; padding: 32px 28px; box-shadow: 0 4px 24px rgba(29,62,110,0.08); border-top: 4px solid var(--teal); transition: 0.25s; margin-bottom: 24px; }
+        .info-card:last-child { margin-bottom: 0; }
+        .info-card:hover { transform: translateY(-4px); }
+        .info-card.gold-top { border-top-color: var(--gold); }
+        .info-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 12px; }
+        .info-card p { font-size: 0.93rem; color: var(--muted); line-height: 1.7; }
+        .icon-wrap { width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg,var(--navy),var(--teal)); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 1.4rem; }
+
+        /* VALUES */
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
+        .value-card { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; transition: 0.25s; }
+        .value-card:hover { background: rgba(255,255,255,0.1); }
+        .value-icon { font-size: 2.2rem; margin-bottom: 14px; }
+        .value-card h4 { font-size: 0.95rem; color: var(--white); font-weight: 700; }
+
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 28px; }
+        .service-card { background: var(--white); border-radius: 14px; padding: 36px 28px; box-shadow: 0 4px 20px rgba(29,62,110,0.07); transition: 0.25s; position: relative; overflow: hidden; }
+        .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,var(--teal),var(--green)); transform: scaleX(0); transform-origin: left; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(29,62,110,0.13); }
+        .service-card:hover::after { transform: scaleX(1); }
+        .service-icon { font-size: 2.2rem; margin-bottom: 18px; }
+        .service-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 14px; }
+        .services-photos { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 40px; }
+        .services-photos img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; display: block; box-shadow: 0 4px 16px rgba(29,62,110,0.10); }
+        .service-card ul li { font-size: 0.88rem; color: var(--muted); padding: 4px 0 4px 18px; position: relative; }
+        .service-card ul li::before { content: '->'; position: absolute; left: 0; color: var(--teal); font-size: 0.8rem; }
+
+        /* WHO WE SERVE */
+        .serve-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 28px; }
+        .serve-card { background: var(--white); border-radius: 16px; padding: 36px 28px; box-shadow: 0 4px 20px rgba(29,62,110,0.07); text-align: center; transition: 0.25s; border-bottom: 4px solid var(--teal); }
+        .serve-card.gold { border-bottom-color: var(--gold); }
+        .serve-card.green { border-bottom-color: var(--green); }
+        .serve-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(29,62,110,0.13); }
+        .serve-icon { font-size: 2.8rem; margin-bottom: 16px; }
+        .serve-card h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 12px; }
+        .serve-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+        /* WHY CHOOSE US */
+        .adv-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px; }
+        .adv-item { display: flex; gap: 16px; align-items: flex-start; background: var(--white); padding: 24px 20px; border-radius: 12px; box-shadow: 0 3px 16px rgba(29,62,110,0.07); }
+        .adv-icon { width: 44px; height: 44px; flex-shrink: 0; border-radius: 10px; background: linear-gradient(135deg,var(--teal),var(--green)); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .adv-item h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 4px; }
+        .adv-item p  { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+        /* CTA / CONTACT */
+        .cta-section { background: linear-gradient(135deg,var(--navy) 0%,#0d5fa3 100%); text-align: center; padding: 90px 40px; }
+        .cta-section h2 { font-size: clamp(1.8rem,3.5vw,2.8rem); color: var(--white); margin-bottom: 16px; }
+        .cta-section > p { color: rgba(255,255,255,0.8); font-size: 1rem; max-width: 560px; margin: 0 auto 44px; line-height: 1.8; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 20px; max-width: 860px; margin: 0 auto 44px; }
+        .contact-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 28px 22px; color: var(--white); text-align: center; }
+        .contact-card .c-icon { font-size: 2rem; margin-bottom: 12px; }
+        .contact-card h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+        .contact-card p { font-size: 0.88rem; color: rgba(255,255,255,0.85); line-height: 1.7; }
+
+        .enquiry-overlay { position: fixed; inset: 0; background: rgba(8, 20, 40, 0.72); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
+        .enquiry-overlay.show { display: flex; }
+        .enquiry-modal { width: min(560px, 100%); background: var(--white); border-radius: 14px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); overflow: hidden; }
+        .enquiry-header { background: linear-gradient(135deg, var(--navy), #0d5fa3); color: var(--white); padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; }
+        .enquiry-header h3 { font-size: 1.05rem; }
+        .close-popup { background: transparent; border: none; color: var(--white); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+        .enquiry-form { padding: 20px; display: grid; gap: 12px; }
+        .enquiry-form label { font-size: 0.82rem; color: var(--navy); font-weight: 700; }
+        .enquiry-form input,
+        .enquiry-form textarea { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-family: 'Open Sans', sans-serif; font-size: 0.92rem; }
+        .enquiry-form textarea { min-height: 110px; resize: vertical; }
+        .enquiry-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px; }
+        .btn-secondary { background: #edf2f7; color: #334155; border: none; padding: 10px 16px; border-radius: 24px; font-weight: 700; cursor: pointer; }
+
+        /* FOOTER */
+        footer { background: var(--dark); color: rgba(255,255,255,0.55); padding: 40px 20px; font-size: 0.85rem; overflow: hidden; }
+        .footer-inner { display: flex; align-items: center; max-width: 1200px; margin: 0 auto; gap: 16px; }
+        .footer-scene-col { flex: 0 0 18%; display: flex; justify-content: center; align-items: center; }
+        .footer-scene-img { width: 100%; max-width: 150px; height: 110px; object-fit: cover; border-radius: 12px; opacity: 0.85; }
+        .footer-main { flex: 1 1 auto; text-align: center; padding: 0 10px; }
+        .footer-logo-col { flex: 0 0 18%; display: flex; justify-content: flex-end; align-items: center; }
+        .footer-logo-img { height: 90px; width: auto; max-width: 150px; background: var(--white); border-radius: 12px; padding: 6px 12px; }
+        .footer-brand { font-family: 'Montserrat',sans-serif; font-weight: 800; color: var(--white); font-size: 1.1rem; margin-bottom: 6px; }
+        .footer-motto { color: var(--gold); font-style: italic; margin-bottom: 20px; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+        .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.82rem; transition: 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+        footer hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0 auto 16px; max-width: 400px; }
+
+
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            /* NAVBAR */
+            .navbar { padding: 0 16px; height: 68px; }
+            .brand-logo-img { height: 48px; }
+            .brand-text h1 { font-size: 1rem; }
+            .brand-text p { font-size: 0.6rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999; }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 14px; font-size: 0.9rem; border-radius: 6px; }
+            .hamburger { display: flex; }
+
+            /* HERO */
+            .hero { padding: 60px 16px; min-height: 70vh; background: linear-gradient(135deg, var(--navy) 0%, #0d5fa3 45%, var(--teal) 100%); }
+            .hero h2 { font-size: clamp(1.6rem,6vw,2.4rem); }
+            .hero p { font-size: 0.95rem; }
+            .hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 280px; }
+
+            /* SECTIONS */
+            .section { padding: 50px 16px; }
+            .section-title { font-size: clamp(1.4rem,5vw,2rem); }
+            .cta-section { padding: 50px 16px; }
+
+            /* ABOUT */
+            .about-two-col { grid-template-columns: 1fr !important; }
+
+            /* SERVICES */
+            .services-grid { grid-template-columns: 1fr; }
+            .services-photos { grid-template-columns: repeat(2,1fr); }
+            .services-photos img { height: 140px; }
+
+            /* WHO WE SERVE */
+            .serve-grid { grid-template-columns: 1fr; }
+
+            /* WHY US */
+            .adv-list { grid-template-columns: 1fr; }
+
+            /* CONTACT */
+            .contact-grid { grid-template-columns: 1fr; }
+
+            /* FOOTER */
+            .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+            .footer-scene-col { flex: unset; width: 100%; display: flex; justify-content: center; }
+            .footer-scene-img { width: 100%; max-width: 100%; height: 160px; object-fit: cover; border-radius: 12px; }
+            .footer-main { flex: unset; width: 100%; padding: 0; }
+            .footer-logo-col { display: none; }
+            .footer-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+            /* VALUES */
+            .values-grid { grid-template-columns: repeat(2,1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="top">
+        <div class="brand">
+            <img src="../logo.png" alt="Sonny Horizon Travel Agency" class="brand-logo-img">
+            <div class="brand-text">
+                <h1>Sonny Horizon</h1>
+                <p>TRAVEL AGENCY &nbsp;&middot;&nbsp; <span class="brand-slogan">Memories that never fade</span></p>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#serve">Who We Serve</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact" class="nav-btn">Book a Trip</a>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- HERO POSTER -->
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="../flight.png" alt="Flight" class="hero-img">
+            <div class="hero-badge">&#x2708; Mbombela, Mpumalanga &middot; Est. 2026</div>
+            <h2>Your Journey Begins<br><span>Where the Horizon Meets the Sky</span></h2>
+            <p>We plan seamless, affordable, and unforgettable travel experiences — for individuals, families, corporate teams, and government institutions.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="section-inner">
+            <span class="section-label">About Us</span>
+            <h2 class="section-title">Sonny Horizon Travel Agency</h2>
+            <div class="divider"></div>
+            <div class="about-two-col">
+                <div>
+                    <p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:18px;">
+                        We are a dynamic, customer-centric travel agency based in Mbombela, Mpumalanga — strategically positioned close to some of South Africa's most iconic tourism destinations including Kruger National Park and the Panorama Route.
+                    </p>
+                    <p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:18px;">
+                        We specialise in local and international travel bookings — flights, accommodation, and fully managed travel services for individuals, corporate clients, and government institutions.
+                    </p>
+                    <p style="font-size:1rem;line-height:1.9;color:var(--muted);">
+                        Whether you travel for business or leisure, in peak season or off-peak, Sonny Horizon ensures you experience travel that creates <em>memories that never fade.</em>
+                    </p>
+                </div>
+                <div>
+                    <div class="info-card">
+                        <div class="icon-wrap">&#x1F3AF;</div>
+                        <h3>Our Vision</h3>
+                        <p>To become one of South Africa's most trusted and recognized travel agencies, known for excellence, efficiency, and unforgettable travel experiences.</p>
+                    </div>
+                    <div class="info-card gold-top">
+                        <div class="icon-wrap" style="background:linear-gradient(135deg,#c8920e,var(--gold))">&#x1F680;</div>
+                        <h3>Our Mission</h3>
+                        <p>To provide reliable, affordable, and customized travel solutions that meet the needs of individuals, businesses, and government institutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="section section-dark">
+        <div class="section-inner">
+            <span class="section-label">Who We Are</span>
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="divider"></div>
+            <div class="values-grid">
+                <div class="value-card"><div class="value-icon">&#x1F3C5;</div><h4>Professionalism</h4></div>
+                <div class="value-card"><div class="value-icon">&#x1F91D;</div><h4>Integrity</h4></div>
+                <div class="value-card"><div class="value-icon">&#x1F60A;</div><h4>Customer Satisfaction</h4></div>
+                <div class="value-card"><div class="value-icon">&#x23F1;&#xFE0F;</div><h4>Reliability</h4></div>
+                <div class="value-card"><div class="value-icon">&#x1F4A1;</div><h4>Innovation</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-alt" id="services">
+        <div class="section-inner">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Our Services</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">From a quick domestic flight to a fully managed government delegation — we handle every detail so you can focus on the journey.</p>
+            <br><br>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#x2708;&#xFE0F;</div>
+                    <h3>Flight Bookings</h3>
+                    <ul>
+                        <li>Local and international flights</li>
+                        <li>One-way and return trips</li>
+                        <li>Multi-city travel arrangements</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#x1F3E8;</div>
+                    <h3>Accommodation</h3>
+                    <ul>
+                        <li>Hotels (local and international)</li>
+                        <li>Guest houses and lodges</li>
+                        <li>Resorts and boutique stays</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#x1F4BC;</div>
+                    <h3>Corporate Travel</h3>
+                    <ul>
+                        <li>Business trip planning</li>
+                        <li>Conference and meeting travel</li>
+                        <li>Company travel account management</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#x1F3DB;&#xFE0F;</div>
+                    <h3>Government Travel</h3>
+                    <ul>
+                        <li>Travel for government officials</li>
+                        <li>Procurement-compliant bookings</li>
+                        <li>Bulk and scheduled travel</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#x1F30D;</div>
+                    <h3>Holiday Packages</h3>
+                    <ul>
+                        <li>Local and international packages</li>
+                        <li>Group travel arrangements</li>
+                        <li>Seasonal deals — peak and off-peak</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#x1F4CB;</div>
+                    <h3>Travel Advisory</h3>
+                    <ul>
+                        <li>Personalised travel consultation</li>
+                        <li>Custom itinerary planning</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-photos">
+                <img src="../dominik-mCQ-ykj6tQk-unsplash.jpg" alt="Flight travel">
+                <img src="../maranda-vandergriff-7aakZdIl4vg-unsplash.jpg" alt="Accommodation">
+                <img src="../pexels-pixabay-271624.jpg" alt="Corporate travel">
+                <img src="../pexels-pixabay-46148.jpg" alt="Government travel">
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE SERVE -->
+    <section class="section" id="serve">
+        <div class="section-inner">
+            <span class="section-label">Our Clients</span>
+            <h2 class="section-title">Who We Serve</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Whether you're planning a family holiday, a business trip, or an official government delegation — we have the right solution for you.</p>
+            <br><br>
+            <div class="serve-grid">
+                <div class="serve-card">
+                    <div class="serve-icon">&#x1F464;</div>
+                    <h3>Individuals &amp; Families</h3>
+                    <p>Leisure travellers, tourists exploring Mpumalanga and beyond, and families looking for memorable holiday experiences.</p>
+                </div>
+                <div class="serve-card gold">
+                    <div class="serve-icon">&#x1F4BC;</div>
+                    <h3>Corporate Clients</h3>
+                    <p>Private companies and SMEs that need reliable, efficient travel management for their teams — from day trips to international conferences.</p>
+                </div>
+                <div class="serve-card green">
+                    <div class="serve-icon">&#x1F3DB;&#xFE0F;</div>
+                    <h3>Government Institutions</h3>
+                    <p>Government departments and public officials requiring organised, procurement-compliant travel logistics and bulk bookings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section section-alt" id="why">
+        <div class="section-inner">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">The Sonny Horizon Difference</h2>
+            <div class="divider"></div>
+            <div class="adv-list">
+                <div class="adv-item">
+                    <div class="adv-icon">&#x1F60A;</div>
+                    <div><h4>Personalised Service</h4><p>Every client gets dedicated attention and travel solutions tailored to their specific needs and budget.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon">&#x1F4B0;</div>
+                    <div><h4>Competitive Pricing</h4><p>We find you the best rates without compromising on quality, comfort, or reliability.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon">&#x26A1;</div>
+                    <div><h4>Fast &amp; Reliable</h4><p>Quick turnaround times and dependable service — we're here when you need us.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon">&#x1F4C5;</div>
+                    <div><h4>Year-Round Availability</h4><p>Peak season, off-peak, school holidays — we deliver consistent service all year long.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon">&#x1F91D;</div>
+                    <div><h4>Long-Term Relationships</h4><p>We build lasting partnerships with our clients through trust, transparency, and results.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon">&#x1F30D;</div>
+                    <div><h4>Local &amp; Global Reach</h4><p>Deep roots in Mpumalanga tourism combined with connections to international destinations worldwide.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Plan Your Next Journey?</h2>
+        <p>Get in touch with Sonny Horizon Travel Agency today. Let us take care of every detail while you look forward to the adventure.</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="c-icon">&#x1F4CD;</div>
+                <h4>Location</h4>
+                <p>Stand No 881 Entokozweni Ext-1<br>Kanyamazane 1214<br>Mbombela, Mpumalanga</p>
+            </div>
+            <div class="contact-card">
+                <div class="c-icon">&#x1F4F1;</div>
+                <h4>Find Us Online</h4>
+                <p>Facebook<br>Instagram<br>WhatsApp Business</p>
+            </div>
+            <div class="contact-card">
+                <div class="c-icon">&#x2708;&#xFE0F;</div>
+                <h4>We Arrange</h4>
+                <p>Flights &middot; Hotels<br>Corporate Travel<br>Holiday Packages</p>
+            </div>
+        </div>
+        <button class="btn-primary enquiry-cta" onclick="openEnquiryPopup()">Send an Enquiry</button>
+    </section>
+
+    <div class="enquiry-overlay" id="enquiryOverlay" onclick="closeEnquiryPopup(event)">
+        <div class="enquiry-modal" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
+            <div class="enquiry-header">
+                <h3 id="enquiryTitle">Send Us an Enquiry</h3>
+                <button class="close-popup" type="button" aria-label="Close" onclick="closeEnquiryPopup()">&times;</button>
+            </div>
+            <form class="enquiry-form" id="enquiryForm">
+                <div>
+                    <label for="enqName">Full Name</label>
+                    <input id="enqName" name="name" type="text" required>
+                </div>
+                <div>
+                    <label for="enqEmail">Email Address</label>
+                    <input id="enqEmail" name="email" type="email" required>
+                </div>
+                <div>
+                    <label for="enqMessage">Trip Details</label>
+                    <textarea id="enqMessage" name="message" placeholder="Tell us your destination, dates, and number of travelers." required></textarea>
+                </div>
+                <div class="enquiry-actions">
+                    <button type="button" class="btn-secondary" onclick="closeEnquiryPopup()">Cancel</button>
+                    <button type="submit" class="btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-scene-col">
+                <img src="../image.png" alt="Travel scene" class="footer-scene-img">
+            </div>
+            <div class="footer-main">
+                <p class="footer-brand">Sonny Horizon Travel Agency (Pty) Ltd</p>
+                <b><p class="footer-motto">Memories that never fade</p>
+                 </b>
+                <hr>
+                <p>&copy; 2026 Sonny Horizon Travel Agency (Pty) Ltd &nbsp;&middot;&nbsp; Reg: 2026/295750/07 &nbsp;&middot;&nbsp; Mbombela, Mpumalanga</p>
+            </div>
+            <div class="footer-logo-col">
+                <img src="../logo.png" alt="Sonny Horizon Travel Agency" class="footer-logo-img">
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+        function openEnquiryPopup() {
+            document.getElementById('enquiryOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeEnquiryPopup(event) {
+            if (event && event.target.id !== 'enquiryOverlay') return;
+            document.getElementById('enquiryOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your enquiry has been received. We will contact you shortly.');
+            this.reset();
+            closeEnquiryPopup();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
