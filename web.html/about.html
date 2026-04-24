@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonny Horizon Travel Agency | About</title>
+    <link rel="icon" type="image/jpeg" href="../logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#1d3e6e; --teal:#1a8fc1; --green:#7ab934; --gold:#f9c414; --light:#f4f9fd; --white:#ffffff; --dark:#1a1a2e; --muted:#6c757d; --border:#dee2e6; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: #333; background: radial-gradient(circle at top left, rgba(26,143,193,0.10), transparent 28%), radial-gradient(circle at top right, rgba(249,196,20,0.12), transparent 24%), linear-gradient(180deg, #f8fbfe 0%, #f2f7fb 100%); }
+        img { max-width: 100%; height: auto; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.10); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 84px; }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo-img { height: 70px; width: auto; }
+        .brand-text h1 { font-size: 1.15rem; color: var(--navy); line-height: 1.1; }
+        .brand-text p  { font-size: 0.68rem; color: var(--teal); font-style: italic; }
+        .brand-slogan { display: inline-block; background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sloganShine 2.4s linear infinite, sloganPulse 1.8s ease-in-out infinite; font-weight: 700; }
+        @keyframes sloganShine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+        @keyframes sloganPulse { 0%,100%{filter:drop-shadow(0 0 0 rgba(249,196,20,0))} 50%{filter:drop-shadow(0 0 6px rgba(249,196,20,0.55))} }
+        .nav-links { display: flex; gap: 4px; align-items: center; }
+        .nav-links a { padding: 8px 14px; font-family: 'Montserrat',sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); border-radius: 4px; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--navy); color: var(--white); }
+        .nav-btn { background: var(--gold) !important; color: var(--navy) !important; border-radius: 20px !important; padding: 8px 20px !important; }
+        .nav-btn:hover { background: var(--teal) !important; color: var(--white) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
+
+        /* PAGE HERO BANNER */
+        .page-hero { padding: 40px 40px; background: radial-gradient(circle at top right, rgba(249,196,20,0.18), transparent 24%), linear-gradient(135deg, #173765 0%, #15558d 58%, #1a8fc1 100%); }
+        .page-hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 25vw 1fr; gap: 32px; align-items: center; }
+        .page-hero-image { width: 25vw; max-width: 320px; min-width: 180px; justify-self: start; }
+        .page-hero-image img { width: 100%; height: auto; display: block; border-radius: 18px; }
+        .page-hero-copy { text-align: left; padding: 42px 38px; }
+        .page-hero h2 { font-size: clamp(1.8rem,4vw,3rem); color: var(--white); font-weight: 800; margin-bottom: 14px; }
+        .page-hero p { color: rgba(255,255,255,0.80); font-size: 1.05rem; max-width: 580px; margin: 0; line-height: 1.8; }
+
+        /* SECTIONS */
+        .section { padding: 80px 40px; }
+        .section-alt { background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(240,247,252,0.96) 100%); }
+        .section-dark { background: var(--navy); color: var(--white); padding: 80px 40px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label { display: inline-block; font-family: 'Montserrat',sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+        .section-dark .section-label { color: var(--gold); }
+        .section-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+        .section-dark .section-title { color: var(--white); }
+        .section-subtitle { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.8; }
+        .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 16px 0 32px; }
+
+        /* ABOUT TWO-COL */
+        .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+        .info-card { background: var(--light); border-radius: 14px; padding: 28px 24px; margin-bottom: 20px; border-left: 4px solid var(--teal); }
+        .info-card.gold-top { border-left-color: var(--gold); }
+        .info-card h3 { font-size: 1rem; color: var(--navy); margin-bottom: 8px; }
+        .info-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+        .icon-wrap { width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg,var(--navy),var(--teal)); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: var(--white); }
+        .icon-wrap svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* CORE VALUES */
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
+        .value-card { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; transition: 0.25s; }
+        .value-card:hover { background: rgba(255,255,255,0.1); }
+        .value-icon { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: var(--white); }
+        .value-icon svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .value-card h4 { font-size: 0.95rem; color: var(--white); font-weight: 700; }
+
+        /* WHY CHOOSE US */
+        .adv-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 24px; }
+        .adv-item { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px 22px; transition: 0.25s; }
+        .adv-item:hover { box-shadow: 0 6px 20px rgba(29,62,110,0.08); border-color: var(--teal); }
+        .adv-icon { width: 52px; height: 52px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #f5fbff 0%, #eaf4fc 100%); border: 1px solid #d4e4f2; color: var(--navy); flex-shrink: 0; }
+        .adv-icon svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .adv-item h4 { font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
+        .adv-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+        /* FOOTER */
+        footer { background: linear-gradient(180deg, #16355f 0%, #102746 100%); color: rgba(255,255,255,0.76); padding: 46px 20px 24px; font-size: 0.85rem; margin-top: 40px; }
+        .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; max-width: 1200px; margin: 0 auto; gap: 28px; align-items: start; }
+        .footer-brand { font-family: 'Montserrat',sans-serif; font-weight: 800; color: var(--white); font-size: 1.2rem; margin-bottom: 8px; }
+        .footer-motto { color: var(--gold); font-style: italic; margin-bottom: 14px; }
+        .footer-copy { color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 360px; }
+        .footer-heading { font-family: 'Montserrat',sans-serif; color: var(--white); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+        .footer-links { display: grid; gap: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.76); font-size: 0.9rem; transition: 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-contact { display: grid; gap: 12px; }
+        .footer-contact p { color: rgba(255,255,255,0.76); line-height: 1.6; }
+        .footer-bottom { max-width: 1200px; margin: 26px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.62); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .page-hero-inner { grid-template-columns: 1fr; gap: 22px; }
+            .page-hero-image { width: min(60vw, 320px); min-width: 0; justify-self: center; }
+            .page-hero-copy { text-align: center; }
+            .page-hero p { margin: 0 auto; }
+        }
+
+        @media(max-width:768px){
+            .navbar { padding: 0 16px; height: 68px; }
+            .brand-logo-img { height: 48px; }
+            .brand-text h1 { font-size: 1rem; }
+            .brand-text p { font-size: 0.6rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999; }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 14px; font-size: 0.9rem; border-radius: 6px; }
+            .hamburger { display: flex; }
+            .page-hero { padding: 28px 16px; }
+            .page-hero-inner { grid-template-columns: 1fr; gap: 20px; }
+            .page-hero-image { width: min(72vw, 280px); min-width: 0; justify-self: center; }
+            .page-hero-copy { text-align: center; padding: 28px 22px; }
+            .page-hero p { margin: 0 auto; }
+            .section { padding: 50px 16px; }
+            .section-dark { padding: 50px 16px; }
+            .about-two-col { grid-template-columns: 1fr; gap: 24px; }
+            .values-grid { grid-template-columns: repeat(2,1fr); }
+            .adv-list { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; text-align: left; gap: 22px; }
+            .footer-copy { max-width: 100%; }
+            .footer-bottom { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="brand">
+            <a href="index.html"><img src="../logo.png" alt="Sonny Horizon Travel Agency" class="brand-logo-img"></a>
+            <div class="brand-text">
+                <h1>Sonny Horizon</h1>
+                <p>TRAVEL AGENCY &nbsp;&middot;&nbsp; <span class="brand-slogan">Memories that never fade</span></p>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="nav-btn">Book a Trip</a>
+        </div>
+        <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <div class="page-hero-image">
+                <img src="../image.png" alt="Sonny Horizon travel showcase">
+            </div>
+            <div class="page-hero-copy">
+                <h2>About Sonny Horizon</h2>
+                <p>A dynamic, customer-centric travel agency rooted in Mbombela, Mpumalanga — committed to creating memories that never fade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="section-inner">
+            <span class="section-label">About Us</span>
+            <h2 class="section-title">Sonny Horizon Travel Agency</h2>
+            <div class="divider"></div>
+            <div class="about-two-col">
+                <div>
+                    <p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:18px;">
+                        We are a dynamic, customer-centric travel agency based in Mbombela, Mpumalanga — strategically positioned close to some of South Africa's most iconic tourism destinations including Kruger National Park and the Panorama Route.
+                    </p>
+                    <p style="font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:18px;">
+                        We specialise in local and international travel bookings — flights, accommodation, and fully managed travel services for individuals, corporate clients, and government institutions.
+                    </p>
+                    <p style="font-size:1rem;line-height:1.9;color:var(--muted);">
+                        Whether you travel for business or leisure, in peak season or off-peak, Sonny Horizon ensures you experience travel that creates <em>memories that never fade.</em>
+                    </p>
+                </div>
+                <div>
+                    <div class="info-card">
+                        <div class="icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="1.5"></circle></svg></div>
+                        <h3>Our Vision</h3>
+                        <p>To become one of South Africa's most trusted and recognized travel agencies, known for excellence, efficiency, and unforgettable travel experiences.</p>
+                    </div>
+                    <div class="info-card gold-top">
+                        <div class="icon-wrap" style="background:linear-gradient(135deg,#c8920e,var(--gold))"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4c3 1 5 3 6 6-3 1-5 3-6 6-3-1-5-3-6-6 1-3 3-5 6-6z"></path><path d="M10 14L6 18"></path><path d="M12 16l2 2"></path></svg></div>
+                        <h3>Our Mission</h3>
+                        <p>To provide reliable, affordable, and customized travel solutions that meet the needs of individuals, businesses, and government institutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="section-dark">
+        <div class="section-inner">
+            <span class="section-label">Who We Are</span>
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="divider"></div>
+            <div class="values-grid">
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M6 20h12"></path><path d="M8 16h8v4H8z"></path></svg></div><h4>Professionalism</h4></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div><h4>Integrity</h4></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9 10h.01M15 10h.01"></path><path d="M9 14c1 .8 2 .8 3 .8s2 0 3-.8"></path></svg></div><h4>Customer Satisfaction</h4></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg></div><h4>Reliability</h4></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 14h4"></path><path d="M12 4a5 5 0 0 0-3 9v1h6v-1a5 5 0 0 0-3-9z"></path></svg></div><h4>Innovation</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section section-alt" id="why">
+        <div class="section-inner">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">The Sonny Horizon Difference</h2>
+            <div class="divider"></div>
+            <div class="adv-list">
+                <div class="adv-item">
+                    <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M6 19c0-3.3 2.7-6 6-6s6 2.7 6 6"></path></svg></div>
+                    <div><h4>Personalised Service</h4><p>Every client gets dedicated attention and travel solutions tailored to their specific needs and budget.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16"></path><path d="M16 8c0-1.5-1.8-2.5-4-2.5S8 6.5 8 8s1.8 2.5 4 2.5 4 1 4 2.5-1.8 2.5-4 2.5-4-1-4-2.5"></path></svg></div>
+                    <div><h4>Competitive Pricing</h4><p>We find you the best rates without compromising on quality, comfort, or reliability.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3L6 13h5l-1 8 8-11h-5l0-7z"></path></svg></div>
+                    <div><h4>Fast &amp; Reliable</h4><p>Quick turnaround times and dependable service — we're here when you need us.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg></div>
+                    <div><h4>Year-Round Availability</h4><p>Peak season, off-peak, school holidays — we deliver consistent service all year long.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12l3-3a2 2 0 0 1 3 0l2 2"></path><path d="M4 13l3 3a2 2 0 0 0 3 0l2-2"></path><path d="M16 11l4 4"></path></svg></div>
+                    <div><h4>Long-Term Relationships</h4><p>We build lasting partnerships with our clients through trust, transparency, and results.</p></div>
+                </div>
+                <div class="adv-item">
+                    <div class="adv-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16"></path><path d="M12 4a12 12 0 0 1 0 16"></path><path d="M12 4a12 12 0 0 0 0 16"></path></svg></div>
+                    <div><h4>Local &amp; Global Reach</h4><p>Deep roots in Mpumalanga tourism combined with connections to international destinations worldwide.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">Sonny Horizon Travel Agency (Pty) Ltd</p>
+                <p class="footer-motto"><b>Memories that never fade</b></p>
+                <p class="footer-copy">Professional travel planning for individuals, families, corporate teams, and government institutions across local and international destinations.</p>
+            </div>
+            <div>
+                <p class="footer-heading">Quick Links</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div>
+                <p class="footer-heading">Contact</p>
+                <div class="footer-contact">
+                    <p>071 640 4480</p>
+                    <p>rtmokoena@sonnyhorizon.co.za</p>
+                    <p>Stand No 881 Entokozweni Ext-1, Kanyamazane 1214, Mbombela, Mpumalanga</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sonny Horizon Travel Agency (Pty) Ltd</p>
+            <p>Reg: 2026/295750/07</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonny Horizon Travel Agency | Services</title>
+    <link rel="icon" type="image/jpeg" href="../logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#1d3e6e; --teal:#1a8fc1; --green:#7ab934; --gold:#f9c414; --light:#f4f9fd; --white:#ffffff; --dark:#1a1a2e; --muted:#6c757d; --border:#dee2e6; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: #333; background: radial-gradient(circle at top left, rgba(26,143,193,0.10), transparent 28%), radial-gradient(circle at top right, rgba(249,196,20,0.12), transparent 24%), linear-gradient(180deg, #f8fbfe 0%, #f2f7fb 100%); }
+        img { max-width: 100%; height: auto; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.10); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 84px; }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo-img { height: 70px; width: auto; }
+        .brand-text h1 { font-size: 1.15rem; color: var(--navy); line-height: 1.1; }
+        .brand-text p  { font-size: 0.68rem; color: var(--teal); font-style: italic; }
+        .brand-slogan { display: inline-block; background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sloganShine 2.4s linear infinite, sloganPulse 1.8s ease-in-out infinite; font-weight: 700; }
+        @keyframes sloganShine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+        @keyframes sloganPulse { 0%,100%{filter:drop-shadow(0 0 0 rgba(249,196,20,0))} 50%{filter:drop-shadow(0 0 6px rgba(249,196,20,0.55))} }
+        .nav-links { display: flex; gap: 4px; align-items: center; }
+        .nav-links a { padding: 8px 14px; font-family: 'Montserrat',sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); border-radius: 4px; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--navy); color: var(--white); }
+        .nav-btn { background: var(--gold) !important; color: var(--navy) !important; border-radius: 20px !important; padding: 8px 20px !important; }
+        .nav-btn:hover { background: var(--teal) !important; color: var(--white) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
+
+        /* PAGE HERO BANNER */
+        .page-hero { background: radial-gradient(circle at top right, rgba(249,196,20,0.18), transparent 24%), linear-gradient(135deg, #173765 0%, #15558d 58%, #1a8fc1 100%); padding: 70px 40px; text-align: center; }
+        .page-hero h2 { font-size: clamp(1.8rem,4vw,3rem); color: var(--white); font-weight: 800; margin-bottom: 14px; }
+        .page-hero p { color: rgba(255,255,255,0.80); font-size: 1.05rem; max-width: 580px; margin: 0 auto; line-height: 1.8; }
+
+        /* SECTIONS */
+        .section { padding: 80px 40px; }
+        .section-alt { background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(240,247,252,0.96) 100%); }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label { display: inline-block; font-family: 'Montserrat',sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+        .section-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+        .section-subtitle { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.8; }
+        .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 16px 0 32px; }
+
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; margin-bottom: 50px; }
+        .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; transition: 0.25s; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(29,62,110,0.10); border-color: var(--teal); }
+        .service-icon, .serve-icon { width: 56px; height: 56px; margin: 0 auto 14px; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; background: linear-gradient(180deg, #f5fbff 0%, #eaf4fc 100%); border: 1px solid #d4e4f2; color: var(--navy); }
+        .service-icon svg, .serve-icon svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .service-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 12px; }
+        .service-card ul li { color: var(--muted); font-size: 0.9rem; padding: 6px 0; }
+        .services-photos { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 16px; }
+        .services-photos img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+
+        /* WHO WE SERVE */
+        .serve-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 24px; }
+        .serve-card { background: #fff; color: var(--navy); border: 1px solid rgba(29,62,110,0.12); border-radius: 14px; padding: 36px 28px; text-align: center; transition: 0.25s; box-shadow: 0 4px 18px rgba(29,62,110,0.07); }
+        .serve-card.gold { background: #fff; color: var(--navy); }
+        .serve-card.green { background: #fff; color: var(--navy); }
+        .serve-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.16); }
+        .serve-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .serve-card p { font-size: 0.92rem; line-height: 1.75; opacity: 0.9; }
+
+        /* SERVICES CTA */
+        .services-cta { margin-top: 40px; background: linear-gradient(135deg, var(--navy) 0%, #0d5fa3 60%, var(--teal) 100%); border-radius: 16px; padding: 30px 24px; text-align: center; color: var(--white); }
+        .services-cta h3 { font-size: 1.35rem; margin-bottom: 10px; }
+        .services-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.84); margin-bottom: 18px; }
+        .services-cta .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); border-radius: 26px; padding: 12px 24px; font-family: 'Montserrat',sans-serif; font-size: 0.88rem; font-weight: 700; }
+        .services-cta .cta-btn:hover { background: #f4be08; }
+
+        /* FOOTER */
+        footer { background: linear-gradient(180deg, #16355f 0%, #102746 100%); color: rgba(255,255,255,0.76); padding: 46px 20px 24px; font-size: 0.85rem; margin-top: 40px; }
+        .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; max-width: 1200px; margin: 0 auto; gap: 28px; align-items: start; }
+        .footer-brand { font-family: 'Montserrat',sans-serif; font-weight: 800; color: var(--white); font-size: 1.2rem; margin-bottom: 8px; }
+        .footer-motto { color: var(--gold); font-style: italic; margin-bottom: 14px; }
+        .footer-copy { color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 360px; }
+        .footer-heading { font-family: 'Montserrat',sans-serif; color: var(--white); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+        .footer-links { display: grid; gap: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.76); font-size: 0.9rem; transition: 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-contact { display: grid; gap: 12px; }
+        .footer-contact p { color: rgba(255,255,255,0.76); line-height: 1.6; }
+        .footer-bottom { max-width: 1200px; margin: 26px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.62); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .services-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+            .serve-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+            .services-photos { grid-template-columns: repeat(2,1fr); }
+        }
+
+        @media(max-width:768px){
+            .navbar { padding: 0 16px; height: 68px; }
+            .brand-logo-img { height: 48px; }
+            .brand-text h1 { font-size: 1rem; }
+            .brand-text p { font-size: 0.6rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999; }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 14px; font-size: 0.9rem; border-radius: 6px; }
+            .hamburger { display: flex; }
+            .page-hero { padding: 50px 16px; }
+            .section { padding: 50px 16px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .serve-grid { grid-template-columns: 1fr; }
+            .services-photos { grid-template-columns: repeat(2,1fr); }
+            .footer-inner { grid-template-columns: 1fr; text-align: left; gap: 22px; }
+            .footer-copy { max-width: 100%; }
+            .footer-bottom { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="brand">
+            <a href="index.html"><img src="../logo.png" alt="Sonny Horizon Travel Agency" class="brand-logo-img"></a>
+            <div class="brand-text">
+                <h1>Sonny Horizon</h1>
+                <p>TRAVEL AGENCY &nbsp;&middot;&nbsp; <span class="brand-slogan">Memories that never fade</span></p>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="contact.html" class="nav-btn">Book a Trip</a>
+        </div>
+        <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <h2>Our Services</h2>
+        <p>From a quick domestic flight to a fully managed government delegation — we handle every detail so you can focus on the journey.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-alt" id="services">
+        <div class="section-inner">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Travel Services</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Comprehensive travel solutions for every type of traveller.</p>
+            <br><br>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l8-2 6-6 2 2-4 7 6 2-2 2-6-1-4 4-2-1 1-5-3-2z"></path></svg></div>
+                    <h3>Flight Bookings</h3>
+                    <ul>
+                        <li>Local and international flights</li>
+                        <li>One-way and return trips</li>
+                        <li>Multi-city travel arrangements</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="16" rx="1"></rect><path d="M10 8h1M13 8h1M10 11h1M13 11h1M10 14h1M13 14h1"></path><path d="M4 20h16"></path></svg></div>
+                    <h3>Accommodation</h3>
+                    <ul>
+                        <li>Hotels (local and international)</li>
+                        <li>Guest houses and lodges</li>
+                        <li>Resorts and boutique stays</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="2"></rect><path d="M9 7V5h6v2"></path><path d="M4 12h16"></path></svg></div>
+                    <h3>Corporate Travel</h3>
+                    <ul>
+                        <li>Business trip planning</li>
+                        <li>Conference and meeting travel</li>
+                        <li>Company travel account management</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 4H3z"></path><path d="M3 9h18"></path><path d="M5 9v9M9 9v9M15 9v9M19 9v9"></path><path d="M2 20h20"></path></svg></div>
+                    <h3>Government Travel</h3>
+                    <ul>
+                        <li>Travel for government officials</li>
+                        <li>Procurement-compliant bookings</li>
+                        <li>Bulk and scheduled travel</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16"></path><path d="M12 4a12 12 0 0 1 0 16"></path><path d="M12 4a12 12 0 0 0 0 16"></path></svg></div>
+                    <h3>Holiday Packages</h3>
+                    <ul>
+                        <li>Local and international packages</li>
+                        <li>Group travel arrangements</li>
+                        <li>Seasonal deals — peak and off-peak</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="12" height="15" rx="2"></rect><path d="M9 5.5h6a1 1 0 0 0 1-1v-1H8v1a1 1 0 0 0 1 1z"></path><path d="M9 10h6M9 13h6M9 16h4"></path></svg></div>
+                    <h3>Travel Advisory</h3>
+                    <ul>
+                        <li>Personalised travel consultation</li>
+                        <li>Custom itinerary planning</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="services-photos">
+                <img src="../dominik-mCQ-ykj6tQk-unsplash.jpg" alt="Flight travel">
+                <img src="../maranda-vandergriff-7aakZdIl4vg-unsplash.jpg" alt="Accommodation">
+                <img src="../pexels-pixabay-271624.jpg" alt="Corporate travel">
+                <img src="../pexels-pixabay-46148.jpg" alt="Government travel">
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE SERVE -->
+    <section class="section" id="serve">
+        <div class="section-inner">
+            <span class="section-label">Our Clients</span>
+            <h2 class="section-title">Who We Serve</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Whether you're planning a family holiday, a business trip, or an official government delegation — we have the right solution for you.</p>
+            <br><br>
+            <div class="serve-grid">
+                <div class="serve-card">
+                    <div class="serve-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M6 19c0-3.3 2.7-6 6-6s6 2.7 6 6"></path></svg></div>
+                    <h3>Individuals &amp; Families</h3>
+                    <p>Leisure travellers, tourists exploring Mpumalanga and beyond, and families looking for memorable holiday experiences.</p>
+                </div>
+                <div class="serve-card gold">
+                    <div class="serve-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="2"></rect><path d="M9 7V5h6v2"></path><path d="M4 12h16"></path></svg></div>
+                    <h3>Corporate Clients</h3>
+                    <p>Private companies and SMEs that need reliable, efficient travel management for their teams — from day trips to international conferences.</p>
+                </div>
+                <div class="serve-card green">
+                    <div class="serve-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l9 4H3z"></path><path d="M3 9h18"></path><path d="M5 9v9M9 9v9M15 9v9M19 9v9"></path><path d="M2 20h20"></path></svg></div>
+                    <h3>Government Institutions</h3>
+                    <p>Government departments and public officials requiring organised, procurement-compliant travel logistics and bulk bookings.</p>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <h3>Need help choosing the right package?</h3>
+                <p>Send your inquiry and our team will guide you with the best travel option for your budget and timeline.</p>
+                <a class="cta-btn" href="contact.html">Send Inquiry</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">Sonny Horizon Travel Agency (Pty) Ltd</p>
+                <p class="footer-motto"><b>Memories that never fade</b></p>
+                <p class="footer-copy">Professional travel planning for individuals, families, corporate teams, and government institutions across local and international destinations.</p>
+            </div>
+            <div>
+                <p class="footer-heading">Quick Links</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div>
+                <p class="footer-heading">Contact</p>
+                <div class="footer-contact">
+                    <p>071 640 4480</p>
+                    <p>rtmokoena@sonnyhorizon.co.za</p>
+                    <p>Stand No 881 Entokozweni Ext-1, Kanyamazane 1214, Mbombela, Mpumalanga</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sonny Horizon Travel Agency (Pty) Ltd</p>
+            <p>Reg: 2026/295750/07</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonny Horizon Travel Agency | Home</title>
+    <link rel="icon" type="image/jpeg" href="../logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#1d3e6e; --teal:#1a8fc1; --green:#7ab934; --gold:#f9c414; --light:#f4f9fd; --white:#ffffff; --dark:#1a1a2e; --muted:#6c757d; --border:#dee2e6; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: #333; background: radial-gradient(circle at top left, rgba(26,143,193,0.10), transparent 28%), radial-gradient(circle at top right, rgba(249,196,20,0.12), transparent 24%), linear-gradient(180deg, #f8fbfe 0%, #f2f7fb 100%); }
+        img { max-width: 100%; height: auto; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.10); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 84px; }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo-img { height: 70px; width: auto; }
+        .brand-text h1 { font-size: 1.15rem; color: var(--navy); line-height: 1.1; }
+        .brand-text p  { font-size: 0.68rem; color: var(--teal); font-style: italic; }
+        .brand-slogan { display: inline-block; background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sloganShine 2.4s linear infinite, sloganPulse 1.8s ease-in-out infinite; font-weight: 700; }
+        @keyframes sloganShine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+        @keyframes sloganPulse { 0%,100%{filter:drop-shadow(0 0 0 rgba(249,196,20,0))} 50%{filter:drop-shadow(0 0 6px rgba(249,196,20,0.55))} }
+        .nav-links { display: flex; gap: 4px; align-items: center; }
+        .nav-links a { padding: 8px 14px; font-family: 'Montserrat',sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); border-radius: 4px; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--navy); color: var(--white); }
+        .nav-btn { background: var(--gold) !important; color: var(--navy) !important; border-radius: 20px !important; padding: 8px 20px !important; }
+        .nav-btn:hover { background: var(--teal) !important; color: var(--white) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
+
+        /* HERO */
+        .hero { min-height: 92vh; background: linear-gradient(135deg, var(--navy) 0%, #0d5fa3 45%, var(--teal) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px; position: relative; overflow: hidden; }
+        .hero-content { max-width: 800px; position: relative; z-index: 2; }
+
+        /* HERO TRAVEL ANIMATION */
+        .anim-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+        .cloud { position: absolute; border-radius: 50px; background: rgba(255,255,255,0.07); }
+        .cloud::before, .cloud::after { content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,0.07); }
+        .c1 { width: 220px; height: 64px; top: 10%; animation: cloudDrift 40s linear infinite; }
+        .c1::before { width: 110px; height: 90px; top: -45px; left: 36px; }
+        .c1::after  { width: 80px;  height: 65px; top: -32px; left: 112px; }
+        .c2 { width: 160px; height: 50px; top: 38%; animation: cloudDrift 56s linear infinite; animation-delay: -22s; }
+        .c2::before { width: 80px; height: 65px; top: -32px; left: 24px; }
+        .c2::after  { width: 58px; height: 48px; top: -24px; left: 82px; }
+        .c3 { width: 200px; height: 58px; top: 62%; animation: cloudDrift 48s linear infinite; animation-delay: -11s; }
+        .c3::before { width: 100px; height: 80px; top: -40px; left: 30px; }
+        .c3::after  { width: 70px;  height: 58px; top: -29px; left: 106px; }
+        .c4 { width: 130px; height: 40px; top: 82%; animation: cloudDrift 62s linear infinite; animation-delay: -35s; }
+        .c4::before { width: 65px; height: 52px; top: -26px; left: 18px; }
+        .c4::after  { width: 48px; height: 40px; top: -20px; left: 66px; }
+        @keyframes cloudDrift {
+            from { transform: translateX(-340px); }
+            to   { transform: translateX(calc(100vw + 340px)); }
+        }
+        .anim-plane { position: absolute; color: rgba(255,255,255,0.38); font-size: 2.2rem; animation: planeAcross 18s linear infinite; top: 26%; }
+        .anim-plane-2 { position: absolute; color: rgba(249,196,20,0.30); font-size: 1.3rem; animation: planeAcross 28s linear infinite; animation-delay: -13s; top: 58%; }
+        @keyframes planeAcross {
+            0%   { left: -70px; }
+            100% { left: calc(100% + 70px); }
+        }
+        .star { position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.6); border-radius: 50%; animation: starBlink ease-in-out infinite; }
+        @keyframes starBlink {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50%       { opacity: 1;   transform: scale(1.8); }
+        }
+        .hero-img { width: 100%; max-width: 480px; height: 260px; object-fit: cover; border-radius: 16px; margin-bottom: 28px; display: block; margin-left: auto; margin-right: auto; }
+        .hero-badge { display: inline-block; background: rgba(249,196,20,0.18); border: 1px solid var(--gold); color: var(--gold); font-family: 'Montserrat',sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; margin-bottom: 24px; }
+        .hero h2 { font-size: clamp(2rem,5vw,3.8rem); color: var(--white); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero h2 span { color: var(--gold); }
+        .hero p { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 36px; line-height: 1.8; }
+        .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+        .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 32px; border-radius: 30px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 20px rgba(249,196,20,0.4); text-decoration: none; display: inline-block; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,196,20,0.5); }
+        .btn-outline { background: transparent; color: var(--white); padding: 14px 32px; border-radius: 30px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.95rem; border: 2px solid rgba(255,255,255,0.6); cursor: pointer; transition: 0.2s; text-decoration: none; display: inline-block; }
+        .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+
+        /* SECTIONS */
+        .section { padding: 80px 40px; }
+        .section-alt { background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(240,247,252,0.96) 100%); }
+        .section-dark { background: var(--navy); color: var(--white); }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label { display: inline-block; font-family: 'Montserrat',sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+        .section-dark .section-label { color: var(--gold); }
+        .section-title { font-size: clamp(1.6rem,3vw,2.4rem); font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+        .section-dark .section-title { color: var(--white); }
+        .section-subtitle { font-size: 1rem; color: var(--muted); max-width: 640px; line-height: 1.8; }
+        .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 16px 0 32px; }
+
+        /* SERVICES OVERVIEW */
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; }
+        .overview-card { position: relative; background: linear-gradient(180deg, #ffffff 0%, #fafdff 100%); border: 1px solid #d6e4ef; border-radius: 14px; padding: 24px 20px 22px; transition: 0.24s; box-shadow: 0 6px 20px rgba(17,52,90,0.06); overflow: hidden; }
+        .overview-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+        .overview-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(17,52,90,0.12); border-color: #bdd7ea; }
+        .overview-icon { width: 50px; height: 50px; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; background: linear-gradient(180deg, #f5fbff 0%, #eaf4fc 100%); border: 1px solid #d4e4f2; color: var(--navy); }
+        .overview-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .overview-thumb { width: 100%; height: 140px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; border: 1px solid #d6e4ef; }
+        .overview-card h3 { font-size: 1.04rem; color: var(--navy); margin-bottom: 10px; letter-spacing: 0.01em; }
+        .overview-card p { font-size: 0.92rem; color: #516986; line-height: 1.68; }
+
+        /* CONTACT STRIP */
+        .contact-strip { background: var(--white); border: 1px solid var(--border); border-radius: 14px; margin-top: 34px; padding: 18px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; align-items: center; }
+        .contact-strip h3 { color: var(--navy); font-size: 1rem; margin-bottom: 6px; }
+        .contact-strip p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+        .contact-pill { display: block; background: #eef5fb; border: 1px solid #d9e7f5; color: var(--navy); border-radius: 10px; padding: 12px; font-size: 0.85rem; text-align: center; }
+        .contact-pill strong { display: block; margin-bottom: 4px; color: var(--teal); }
+
+        /* VALUES TEASER */
+        .values-section { background: linear-gradient(180deg, #f8fbfe 0%, #edf5fb 100%); }
+        .values-section .section-label { color: var(--teal); }
+        .values-section .section-title { color: var(--navy); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
+        .value-card { text-align: left; padding: 24px 20px; background: var(--white); border: 1px solid #d9e8f3; border-radius: 14px; transition: 0.25s; box-shadow: 0 8px 24px rgba(29,62,110,0.06); }
+        .value-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(29,62,110,0.1); border-color: #bdd7ea; }
+        .value-icon { width: 48px; height: 48px; margin-bottom: 14px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #f5fbff 0%, #eaf4fc 100%); border: 1px solid #d4e4f2; color: var(--navy); }
+        .value-icon svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .value-card h4 { font-size: 0.95rem; color: var(--navy); font-weight: 700; margin-bottom: 8px; }
+        .value-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+        /* FOOTER */
+        footer { background: linear-gradient(180deg, #16355f 0%, #102746 100%); color: rgba(255,255,255,0.76); padding: 46px 20px 24px; font-size: 0.85rem; margin-top: 40px; }
+        .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; max-width: 1200px; margin: 0 auto; gap: 28px; align-items: start; }
+        .footer-brand { font-family: 'Montserrat',sans-serif; font-weight: 800; color: var(--white); font-size: 1.2rem; margin-bottom: 8px; }
+        .footer-motto { color: var(--gold); font-style: italic; margin-bottom: 14px; }
+        .footer-copy { color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 360px; }
+        .footer-heading { font-family: 'Montserrat',sans-serif; color: var(--white); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+        .footer-links { display: grid; gap: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.76); font-size: 0.9rem; transition: 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-contact { display: grid; gap: 12px; }
+        .footer-contact p { color: rgba(255,255,255,0.76); line-height: 1.6; }
+        .footer-bottom { max-width: 1200px; margin: 26px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.62); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .contact-strip { grid-template-columns: 1fr; }
+        }
+
+        @media(max-width:768px){
+            .navbar { padding: 0 16px; height: 68px; }
+            .brand-logo-img { height: 48px; }
+            .brand-text h1 { font-size: 1rem; }
+            .brand-text p { font-size: 0.6rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999; }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 14px; font-size: 0.9rem; border-radius: 6px; }
+            .hamburger { display: flex; }
+            .hero { padding: 60px 16px; min-height: 70vh; background: linear-gradient(135deg, var(--navy) 0%, #0d5fa3 45%, var(--teal) 100%); }
+            .hero h2 { font-size: clamp(1.6rem,6vw,2.4rem); }
+            .hero p { font-size: 0.95rem; }
+            .hero-btns { flex-direction: column; align-items: center; gap: 10px; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
+            .section { padding: 50px 16px; }
+            .overview-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: repeat(2,1fr); }
+            .contact-strip { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; text-align: left; gap: 22px; }
+            .footer-copy { max-width: 100%; }
+            .footer-bottom { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="brand">
+            <a href="index.html"><img src="../logo.png" alt="Sonny Horizon Travel Agency" class="brand-logo-img"></a>
+            <div class="brand-text">
+                <h1>Sonny Horizon</h1>
+                <p>TRAVEL AGENCY &nbsp;&middot;&nbsp; <span class="brand-slogan">Memories that never fade</span></p>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="nav-btn">Book a Trip</a>
+        </div>
+        <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- Travel animation overlay -->
+        <div class="anim-bg">
+            <div class="cloud c1"></div>
+            <div class="cloud c2"></div>
+            <div class="cloud c3"></div>
+            <div class="cloud c4"></div>
+            <span class="anim-plane">&#x2708;</span>
+            <span class="anim-plane-2">&#x2708;</span>
+            <span class="star" style="top:7%;left:10%;animation-duration:2.4s;"></span>
+            <span class="star" style="top:14%;left:55%;animation-duration:3.2s;animation-delay:-1s;"></span>
+            <span class="star" style="top:22%;left:82%;animation-duration:2.8s;animation-delay:-0.5s;"></span>
+            <span class="star" style="top:40%;left:6%;animation-duration:3.6s;animation-delay:-2s;"></span>
+            <span class="star" style="top:48%;left:40%;animation-duration:2.1s;animation-delay:-1.5s;"></span>
+            <span class="star" style="top:50%;left:90%;animation-duration:3.0s;animation-delay:-0.8s;"></span>
+            <span class="star" style="top:65%;left:25%;animation-duration:2.6s;animation-delay:-1.2s;"></span>
+            <span class="star" style="top:72%;left:70%;animation-duration:3.4s;animation-delay:-2.2s;"></span>
+            <span class="star" style="top:85%;left:48%;animation-duration:2.2s;animation-delay:-0.3s;"></span>
+            <span class="star" style="top:90%;left:15%;animation-duration:3.8s;animation-delay:-1.8s;"></span>
+            <span class="star" style="top:30%;left:95%;animation-duration:2.9s;animation-delay:-0.7s;"></span>
+            <span class="star" style="top:78%;left:88%;animation-duration:3.3s;animation-delay:-2.5s;"></span>
+        </div>
+        <div class="hero-content">
+            <img src="../flight.png" alt="Flight" class="hero-img">
+            <div class="hero-badge">&#x2708; Mbombela, Mpumalanga &middot; Est. 2026</div>
+            <h2>Your Journey Begins<br><span>Where the Horizon Meets the Sky</span></h2>
+            <p>We plan seamless, affordable, and unforgettable travel experiences — for individuals, families, corporate teams, and government institutions.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section class="section section-alt">
+        <div class="section-inner">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Travel Services Overview</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle">Professional and reliable travel support for local and international journeys, business trips, government travel, and group holidays.</p>
+            <br><br>
+            <div class="overview-grid">
+                <article class="overview-card"><img src="../flights.jpg" alt="Flight Bookings" class="overview-thumb"><h3>Flight Bookings</h3><p>Local and international flights, one-way, return, and multi-city routes arranged with efficiency and care.</p></article>
+                <article class="overview-card"><img src="../accommodationn.jpg" alt="Accommodation" class="overview-thumb"><h3>Accommodation</h3><p>Hotels, lodges, guest houses, and curated stays aligned with your comfort expectations and budget.</p></article>
+                <article class="overview-card"><img src="../corporate.jpg" alt="Corporate Travel" class="overview-thumb"><h3>Corporate Travel</h3><p>Business trips, conferences, and executive travel planning with dependable turnaround and coordination.</p></article>
+                <article class="overview-card"><img src="../government.jpg" alt="Government Travel" class="overview-thumb"><h3>Government Travel</h3><p>Organized travel support for officials, including procurement-aware logistics and scheduled bookings.</p></article>
+                <article class="overview-card"><img src="../holidaysss.jpg" alt="Holiday Packages" class="overview-thumb"><h3>Holiday Packages</h3><p>Individual, family, and group holiday packages for peak and off-peak seasons across trusted destinations.</p></article>
+                <article class="overview-card"><img src="../travel.jpg" alt="Travel Consultation" class="overview-thumb"><h3>Travel Consultation</h3><p>Practical guidance, route planning, and custom itineraries to help you travel with confidence.</p></article>
+            </div>
+
+            <div class="contact-strip">
+                <div>
+                    <h3>Need a quote today?</h3>
+                    <p>Contact Sonny Horizon for quick travel assistance and receive support during business hours (07:30 - 16:30).</p>
+                </div>
+                <a class="contact-pill" href="tel:+27716404480"><strong>Call</strong>071 640 4480</a>
+                <a class="contact-pill" href="https://wa.me/27716404480" target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong>Start a chat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES TEASER -->
+    <section class="section values-section">
+        <div class="section-inner">
+            <span class="section-label">Who We Are</span>
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="divider"></div>
+            <div class="values-grid">
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M6 20h12"></path><path d="M8 16h8v4H8z"></path></svg></div><h4>Professionalism</h4><p>We approach every client interaction with structure, respect, and a high standard of service.</p></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div><h4>Integrity</h4><p>We communicate honestly and act transparently in every recommendation and booking.</p></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9 10h.01M15 10h.01"></path><path d="M9 14c1 .8 2 .8 3 .8s2 0 3-.8"></path></svg></div><h4>Customer Satisfaction</h4><p>We focus on delivering a smooth and dependable experience from inquiry to return.</p></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg></div><h4>Reliability</h4><p>Clients can count on us for timely responses, organized planning, and consistent support.</p></div>
+                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 14h4"></path><path d="M12 4a5 5 0 0 0-3 9v1h6v-1a5 5 0 0 0-3-9z"></path></svg></div><h4>Innovation</h4><p>We keep refining travel solutions so each journey remains practical, efficient, and responsive.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">Sonny Horizon Travel Agency (Pty) Ltd</p>
+                <p class="footer-motto"><b>Memories that never fade</b></p>
+                <p class="footer-copy">Professional travel planning for individuals, families, corporate teams, and government institutions across local and international destinations.</p>
+            </div>
+            <div>
+                <p class="footer-heading">Quick Links</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div>
+                <p class="footer-heading">Contact</p>
+                <div class="footer-contact">
+                    <p>071 640 4480</p>
+                    <p>rtmokoena@sonnyhorizon.co.za</p>
+                    <p>Stand No 881 Entokozweni Ext-1, Kanyamazane 1214, Mbombela, Mpumalanga</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sonny Horizon Travel Agency (Pty) Ltd</p>
+            <p>Reg: 2026/295750/07</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+    </script>
+</body>
+</html>

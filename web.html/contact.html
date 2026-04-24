@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonny Horizon Travel Agency | Contact</title>
+    <link rel="icon" type="image/jpeg" href="../logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy:#1d3e6e; --teal:#1a8fc1; --green:#7ab934; --gold:#f9c414; --light:#f4f9fd; --white:#ffffff; --dark:#1a1a2e; --muted:#6c757d; --border:#dee2e6; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: #333; background: radial-gradient(circle at top left, rgba(26,143,193,0.10), transparent 28%), radial-gradient(circle at top right, rgba(249,196,20,0.12), transparent 24%), linear-gradient(180deg, #f8fbfe 0%, #f2f7fb 100%); }
+        img { max-width: 100%; height: auto; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+
+        /* NAVBAR */
+        .navbar { position: sticky; top: 0; z-index: 1000; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.10); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 84px; }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo-img { height: 70px; width: auto; }
+        .brand-text h1 { font-size: 1.15rem; color: var(--navy); line-height: 1.1; }
+        .brand-text p  { font-size: 0.68rem; color: var(--teal); font-style: italic; }
+        .brand-slogan { display: inline-block; background: linear-gradient(90deg, var(--teal), var(--gold), var(--teal)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: sloganShine 2.4s linear infinite, sloganPulse 1.8s ease-in-out infinite; font-weight: 700; }
+        @keyframes sloganShine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+        @keyframes sloganPulse { 0%,100%{filter:drop-shadow(0 0 0 rgba(249,196,20,0))} 50%{filter:drop-shadow(0 0 6px rgba(249,196,20,0.55))} }
+        .nav-links { display: flex; gap: 4px; align-items: center; }
+        .nav-links a { padding: 8px 14px; font-family: 'Montserrat',sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); border-radius: 4px; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--navy); color: var(--white); }
+        .nav-btn { background: var(--gold) !important; color: var(--navy) !important; border-radius: 20px !important; padding: 8px 20px !important; }
+        .nav-btn:hover { background: var(--teal) !important; color: var(--white) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 26px; height: 3px; background: var(--navy); border-radius: 2px; }
+
+        /* CTA SECTION */
+        .cta-section { background: none; padding: 90px 40px; text-align: center; color: var(--white); }
+        .cta-section h2 { font-size: clamp(1.8rem,4vw,3rem); font-weight: 800; margin-bottom: 16px; color: var(--navy); }
+        .cta-section p { font-size: 1.05rem; color: var(--muted); max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
+        .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 860px; margin: 0 auto 44px; }
+        .contact-card { background: #fff; border: 1px solid rgba(29,62,110,0.12); border-radius: 14px; padding: 30px 24px; text-align: center; box-shadow: 0 4px 18px rgba(29,62,110,0.08); }
+        .c-icon { font-size: 2.2rem; margin-bottom: 12px; }
+        .contact-card h4 { font-size: 0.95rem; color: var(--teal); font-family: 'Montserrat',sans-serif; margin-bottom: 10px; }
+        .contact-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+        .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 32px; border-radius: 30px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 20px rgba(249,196,20,0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,196,20,0.5); }
+        .enquiry-cta { background: #e0b22a; box-shadow: 0 4px 16px rgba(200,146,14,0.30); }
+        .contact-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .btn-ghost { display: inline-block; border: 2px solid var(--navy); color: var(--navy); padding: 12px 24px; border-radius: 28px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.88rem; text-decoration: none; }
+        .btn-ghost:hover { background: rgba(29,62,110,0.08); }
+
+        /* ENQUIRY MODAL */
+        .enquiry-overlay { display: none; position: fixed; inset: 0; background: rgba(10,20,50,0.55); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+        .enquiry-overlay.show { display: flex; }
+        .enquiry-modal { background: var(--white); border-radius: 18px; width: 100%; max-width: 480px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); overflow: hidden; }
+        .enquiry-header { background: var(--navy); padding: 22px 28px; display: flex; justify-content: space-between; align-items: center; }
+        .enquiry-header h3 { color: var(--white); font-size: 1.1rem; }
+        .close-popup { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.6rem; cursor: pointer; line-height: 1; padding: 0; transition: 0.2s; }
+        .close-popup:hover { color: var(--white); }
+        .enquiry-form { padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+        .enquiry-form label { display: block; font-family: 'Montserrat',sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; letter-spacing: 0.05em; text-transform: uppercase; }
+        .enquiry-form input, .enquiry-form textarea { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'Open Sans',sans-serif; font-size: 0.9rem; transition: 0.2s; }
+        .enquiry-form input:focus, .enquiry-form textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(26,143,193,0.12); }
+        .enquiry-form textarea { min-height: 100px; resize: vertical; }
+        .enquiry-actions { display: flex; gap: 12px; justify-content: flex-end; }
+        .btn-secondary { background: var(--light); color: var(--navy); padding: 11px 22px; border-radius: 24px; font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: 0.88rem; border: 1.5px solid var(--border); cursor: pointer; transition: 0.2s; }
+        .btn-secondary:hover { background: var(--border); }
+
+        /* FOOTER */
+        footer { background: linear-gradient(180deg, #16355f 0%, #102746 100%); color: rgba(255,255,255,0.76); padding: 46px 20px 24px; font-size: 0.85rem; margin-top: 40px; }
+        .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; max-width: 1200px; margin: 0 auto; gap: 28px; align-items: start; }
+        .footer-brand { font-family: 'Montserrat',sans-serif; font-weight: 800; color: var(--white); font-size: 1.2rem; margin-bottom: 8px; }
+        .footer-motto { color: var(--gold); font-style: italic; margin-bottom: 14px; }
+        .footer-copy { color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 360px; }
+        .footer-heading { font-family: 'Montserrat',sans-serif; color: var(--white); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+        .footer-links { display: grid; gap: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.76); font-size: 0.9rem; transition: 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-contact { display: grid; gap: 12px; }
+        .footer-contact p { color: rgba(255,255,255,0.76); line-height: 1.6; }
+        .footer-bottom { max-width: 1200px; margin: 26px auto 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.62); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .cta-section { padding: 70px 24px; }
+            .contact-grid { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+        }
+
+        @media(max-width:768px){
+            .navbar { padding: 0 16px; height: 68px; }
+            .brand-logo-img { height: 48px; }
+            .brand-text h1 { font-size: 1rem; }
+            .brand-text p { font-size: 0.6rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999; }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 10px 14px; font-size: 0.9rem; border-radius: 6px; }
+            .hamburger { display: flex; }
+            .cta-section { padding: 60px 16px; }
+            .contact-grid { grid-template-columns: 1fr; max-width: 100%; }
+            .contact-actions { flex-direction: column; align-items: stretch; }
+            .btn-ghost, .btn-primary { width: 100%; max-width: 360px; margin: 0 auto; text-align: center; }
+            .footer-inner { grid-template-columns: 1fr; text-align: left; gap: 22px; }
+            .footer-copy { max-width: 100%; }
+            .footer-bottom { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="brand">
+            <a href="index.html"><img src="../logo.png" alt="Sonny Horizon Travel Agency" class="brand-logo-img"></a>
+            <div class="brand-text">
+                <h1>Sonny Horizon</h1>
+                <p>TRAVEL AGENCY &nbsp;&middot;&nbsp; <span class="brand-slogan">Memories that never fade</span></p>
+            </div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="nav-btn active">Book a Trip</a>
+        </div>
+        <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- CONTACT / CTA -->
+    <section class="cta-section" id="contact">
+        
+        <p>Send your travel request by WhatsApp, email, phone, or our website inquiry form. We respond during business hours from 07:30 to 16:30.</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="c-icon">&#x1F4CD;</div>
+                <h4>Location</h4>
+                <p>Stand No 881 Entokozweni Ext-1<br>Kanyamazane 1214<br>Mbombela, Mpumalanga</p>
+            </div>
+            <div class="contact-card">
+                <div class="c-icon">&#x1F4F1;</div>
+                <h4>Contact Channels</h4>
+                <p>WhatsApp: 071 640 4480<br>Email: rtmokoena@sonnyhorizon.co.za<br>Email: thandekam@sonnyhorizon.co.za</p>
+            </div>
+            <div class="contact-card">
+                <div class="c-icon">&#x1F4DE;</div>
+                <h4>Phone &amp; Hours</h4>
+                <p>Phone: 071 640 4480<br>Business hours:<br>Monday to Friday, 07:30 - 16:30</p>
+            </div>
+        </div>
+        <div class="contact-actions">
+            <a class="btn-ghost" href="https://wa.me/27716404480" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+            <a class="btn-ghost" href="mailto:rtmokoena@sonnyhorizon.co.za">Send Email</a>
+            <button class="btn-primary enquiry-cta" onclick="openEnquiryPopup()">Open Inquiry Form</button>
+        </div>
+    </section>
+
+    <!-- ENQUIRY MODAL -->
+    <div class="enquiry-overlay" id="enquiryOverlay" onclick="closeEnquiryPopup(event)">
+        <div class="enquiry-modal" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
+            <div class="enquiry-header">
+                <h3 id="enquiryTitle">Send Us an Enquiry</h3>
+                <button class="close-popup" type="button" aria-label="Close" onclick="closeEnquiryPopup()">&times;</button>
+            </div>
+            <form class="enquiry-form" id="enquiryForm">
+                <div>
+                    <label for="enqName">Full Name</label>
+                    <input id="enqName" name="name" type="text" required autocomplete="name">
+                </div>
+                <div>
+                    <label for="enqEmail">Email Address</label>
+                    <input id="enqEmail" name="email" type="email" required autocomplete="email">
+                </div>
+                <div>
+                    <label for="enqMessage">Trip Details</label>
+                    <textarea id="enqMessage" name="message" placeholder="Tell us your destination, dates, and number of travelers." required></textarea>
+                </div>
+                <div class="enquiry-actions">
+                    <button type="button" class="btn-secondary" onclick="closeEnquiryPopup()">Cancel</button>
+                    <button type="submit" class="btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">Sonny Horizon Travel Agency (Pty) Ltd</p>
+                <p class="footer-motto"><b>Memories that never fade</b></p>
+                <p class="footer-copy">Professional travel planning for individuals, families, corporate teams, and government institutions across local and international destinations.</p>
+            </div>
+            <div>
+                <p class="footer-heading">Quick Links</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div>
+                <p class="footer-heading">Contact</p>
+                <div class="footer-contact">
+                    <p>071 640 4480</p>
+                    <p>rtmokoena@sonnyhorizon.co.za</p>
+                    <p>Stand No 881 Entokozweni Ext-1, Kanyamazane 1214, Mbombela, Mpumalanga</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sonny Horizon Travel Agency (Pty) Ltd</p>
+            <p>Reg: 2026/295750/07</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+
+        function openEnquiryPopup() {
+            document.getElementById('enquiryOverlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeEnquiryPopup(event) {
+            if (event && event.target.id !== 'enquiryOverlay') return;
+            document.getElementById('enquiryOverlay').classList.remove('show');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your enquiry has been received. We will contact you shortly.');
+            this.reset();
+            closeEnquiryPopup();
+        });
+    </script>
+</body>
+</html>
