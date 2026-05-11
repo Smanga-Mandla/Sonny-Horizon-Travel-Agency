@@ -64,21 +64,33 @@
         .icon-wrap svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
         /* CORE VALUES */
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
-        .value-card { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; transition: 0.25s; }
-        .value-card:hover { background: rgba(255,255,255,0.1); }
-        .value-icon { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: var(--white); }
+        .values-media { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-bottom: 26px; }
+        .values-media img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+        .values-intro { color: rgba(255,255,255,0.84); max-width: 760px; line-height: 1.85; margin-bottom: 26px; }
+        .values-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 18px; }
+        .value-card { position: relative; padding: 24px 20px 20px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; transition: 0.25s; overflow: hidden; }
+        .value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; opacity: 0.9; }
+        .value-card.v1::before { background: var(--gold); }
+        .value-card.v2::before { background: #8dd0eb; }
+        .value-card.v3::before { background: #9ed06f; }
+        .value-card.v4::before { background: #e7d37d; }
+        .value-card.v5::before { background: #f39d72; }
+        .value-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.13); }
+        .value-card.wide { grid-column: span 3; }
+        .value-card.narrow { grid-column: span 2; }
+        .value-icon { width: 56px; height: 56px; margin: 0 0 14px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: var(--white); }
         .value-icon svg { width: 28px; height: 28px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-        .value-card h4 { font-size: 0.95rem; color: var(--white); font-weight: 700; }
+        .value-card h4 { font-size: 1rem; color: var(--white); font-weight: 800; margin-bottom: 8px; }
+        .value-card p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
 
         /* WHY CHOOSE US */
-        .adv-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 24px; }
-        .adv-item { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px 22px; transition: 0.25s; }
+        .adv-list { display: grid; grid-template-columns: repeat(auto-fit,minmax(360px,1fr)); gap: 28px; }
+        .adv-item { display: flex; gap: 20px; align-items: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; min-height: 220px; transition: 0.25s; }
         .adv-item:hover { box-shadow: 0 6px 20px rgba(29,62,110,0.08); border-color: var(--teal); }
-        .adv-icon { width: 52px; height: 52px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #f5fbff 0%, #eaf4fc 100%); border: 1px solid #d4e4f2; color: var(--navy); flex-shrink: 0; }
-        .adv-icon svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-        .adv-item h4 { font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
-        .adv-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+        .adv-icon { width: 64px; height: 64px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(180deg, #f5fbff 0%, #eaf4fc 100%); border: 1px solid #d4e4f2; color: var(--navy); flex-shrink: 0; }
+        .adv-icon svg { width: 32px; height: 32px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .adv-item h4 { font-size: 1.16rem; color: var(--navy); margin-bottom: 10px; }
+        .adv-item p { font-size: 0.98rem; color: var(--muted); line-height: 1.8; }
 
         /* FOOTER */
         footer { background: linear-gradient(180deg, #16355f 0%, #102746 100%); color: rgba(255,255,255,0.76); padding: 46px 20px 24px; font-size: 0.85rem; margin-top: 40px; }
@@ -119,8 +131,20 @@
             .section { padding: 50px 16px; }
             .section-dark { padding: 50px 16px; }
             .about-two-col { grid-template-columns: 1fr; gap: 24px; }
-            .values-grid { grid-template-columns: repeat(2,1fr); }
+            .values-media { grid-template-columns: 1fr; gap: 10px; margin-bottom: 18px; }
+            .values-media img { height: 170px; }
+            .values-grid { grid-template-columns: 1fr; gap: 14px; }
+            .value-card.wide, .value-card.narrow { grid-column: span 1; }
+            .values-intro { font-size: 0.95rem; margin-bottom: 20px; }
+            .value-card { padding: 22px 18px 18px; }
+            .value-card h4 { font-size: 0.95rem; }
+            .value-card p { font-size: 0.84rem; line-height: 1.65; }
             .adv-list { grid-template-columns: 1fr; }
+            .adv-item { padding: 26px 20px; min-height: 0; gap: 14px; }
+            .adv-icon { width: 56px; height: 56px; }
+            .adv-icon svg { width: 28px; height: 28px; }
+            .adv-item h4 { font-size: 1.02rem; margin-bottom: 8px; }
+            .adv-item p { font-size: 0.9rem; line-height: 1.7; }
             .footer-inner { grid-template-columns: 1fr; text-align: left; gap: 22px; }
             .footer-copy { max-width: 100%; }
             .footer-bottom { flex-direction: column; }
@@ -197,15 +221,21 @@
     <!-- CORE VALUES -->
     <section class="section-dark">
         <div class="section-inner">
+            <div class="values-media" aria-label="Core values visual gallery">
+                <img src="../about-values-1.jpg" alt="Travel team collaboration">
+                <img src="../about-values-2.jpg" alt="Client support and travel planning">
+                <img src="../about-values-3.jpg" alt="Airport and global travel experience">
+            </div>
             <span class="section-label">Who We Are</span>
             <h2 class="section-title">Our Core Values</h2>
             <div class="divider"></div>
+            <p class="values-intro">Our values shape every interaction with clients and partners, guiding how we plan journeys, deliver support, and build trust.</p>
             <div class="values-grid">
-                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M6 20h12"></path><path d="M8 16h8v4H8z"></path></svg></div><h4>Professionalism</h4></div>
-                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div><h4>Integrity</h4></div>
-                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9 10h.01M15 10h.01"></path><path d="M9 14c1 .8 2 .8 3 .8s2 0 3-.8"></path></svg></div><h4>Customer Satisfaction</h4></div>
-                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg></div><h4>Reliability</h4></div>
-                <div class="value-card"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 14h4"></path><path d="M12 4a5 5 0 0 0-3 9v1h6v-1a5 5 0 0 0-3-9z"></path></svg></div><h4>Innovation</h4></div>
+                <div class="value-card narrow v1"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M6 20h12"></path><path d="M8 16h8v4H8z"></path></svg></div><h4>Professionalism</h4><p>We deliver each service with structure, respect, and high standards from first inquiry to final booking.</p></div>
+                <div class="value-card narrow v2"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div><h4>Integrity</h4><p>We communicate honestly and provide transparent recommendations that align with your needs and budget.</p></div>
+                <div class="value-card narrow v3"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M9 10h.01M15 10h.01"></path><path d="M9 14c1 .8 2 .8 3 .8s2 0 3-.8"></path></svg></div><h4>Customer Satisfaction</h4><p>We focus on creating smooth travel experiences and dependable support that leave clients confident and happy.</p></div>
+                <div class="value-card wide v4"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg></div><h4>Reliability</h4><p>You can count on us for timely responses, organized planning, and consistent follow-through across every journey and season.</p></div>
+                <div class="value-card wide v5"><div class="value-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"></path><path d="M10 14h4"></path><path d="M12 4a5 5 0 0 0-3 9v1h6v-1a5 5 0 0 0-3-9z"></path></svg></div><h4>Innovation</h4><p>We keep improving travel solutions and planning methods so your trips stay practical, efficient, and future-ready.</p></div>
             </div>
         </div>
     </section>
@@ -266,7 +296,7 @@
                 <p class="footer-heading">Contact</p>
                 <div class="footer-contact">
                     <p>071 640 4480</p>
-                    <p>rtmokoena@sonnyhorizon.co.za</p>
+                    <p>thandekam@sonnyhorizon.co.za</p>
                     <p>Office 7, Second Floor, Nelbro Building<br>39B Brown Street, Nelspruit 1200</p>
                 </div>
             </div>

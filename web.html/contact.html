@@ -220,7 +220,7 @@
                 <p class="footer-heading">Contact</p>
                 <div class="footer-contact">
                     <p>071 640 4480</p>
-                    <p>rtmokoena@sonnyhorizon.co.za</p>
+                    <p>thandekam@sonnyhorizon.co.za</p>
                     <p>Office 7, Second Floor, Nelbro Building<br>39B Brown Street, Nelspruit 1200</p>
                 </div>
             </div>
@@ -244,12 +244,38 @@
             document.getElementById('enquiryOverlay').classList.remove('show');
             document.body.style.overflow = '';
         }
+
+        function buildInquiryMailto(name, email, message) {
+            const recipients = 'rtmokoena@sonnyhorizon.co.za,thandekam@sonnyhorizon.co.za';
+            const subject = encodeURIComponent('New Travel Inquiry - Sonny Horizon Website');
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n\n' +
+                'Trip Details:\n' + message + '\n'
+            );
+            return 'mailto:' + recipients + '?subject=' + subject + '&body=' + body;
+        }
+
         document.getElementById('enquiryForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! Your enquiry has been received. We will contact you shortly.');
+            const name = document.getElementById('enqName').value.trim();
+            const email = document.getElementById('enqEmail').value.trim();
+            const message = document.getElementById('enqMessage').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please complete all fields before sending your inquiry.');
+                return;
+            }
+
+            window.location.href = buildInquiryMailto(name, email, message);
+            alert('Your email app is opening with your inquiry details pre-filled. Send the email to submit your inquiry.');
             this.reset();
             closeEnquiryPopup();
         });
+
+        if (window.location.hash === '#enquiry') {
+            openEnquiryPopup();
+        }
     </script>
 </body>
 </html>
