@@ -97,18 +97,28 @@
         .icon-wrap { width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg,var(--navy),var(--teal)); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 1.4rem; }
 
         /* VALUES */
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
-        .value-card { text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; transition: 0.25s; }
-        .value-card:hover { background: rgba(255,255,255,0.1); }
-        .value-icon { font-size: 2.2rem; margin-bottom: 14px; }
-        .value-card h4 { font-size: 0.95rem; color: var(--white); font-weight: 700; }
+        .values-top { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 20px; }
+        .values-bottom { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+        .value-card { position: relative; padding: 32px 28px 28px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 16px; transition: 0.25s; overflow: hidden; }
+        .value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 16px 16px 0 0; }
+        .value-card.vc-teal::before  { background: var(--teal); }
+        .value-card.vc-gold::before  { background: var(--gold); }
+        .value-card.vc-green::before { background: var(--green); }
+        .value-card.vc-navy::before  { background: rgba(255,255,255,0.5); }
+        .value-card.vc-coral::before { background: #e8683a; }
+        .value-card:hover { background: rgba(255,255,255,0.13); transform: translateY(-5px); }
+        .value-num { font-family: 'Montserrat',sans-serif; font-size: 3.4rem; font-weight: 800; line-height: 1; color: rgba(255,255,255,0.07); position: absolute; top: 14px; right: 18px; user-select: none; }
+        .value-icon { width: 56px; height: 56px; margin-bottom: 16px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.7rem; background: rgba(255,255,255,0.1); }
+        .value-card h4 { font-size: 1.05rem; color: var(--white); font-weight: 800; margin-bottom: 10px; }
+        .value-card p  { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.75; }
+        .values-gallery { margin-top: 32px; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+        .values-gallery img { width: 100%; height: 230px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 26px rgba(0,0,0,0.25); }
 
         /* SERVICES */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 28px; }
         .service-card { background: var(--white); border-radius: 14px; padding: 36px 28px; box-shadow: 0 4px 20px rgba(29,62,110,0.07); transition: 0.25s; position: relative; overflow: hidden; }
-        .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,var(--teal),var(--green)); transform: scaleX(0); transform-origin: left; transition: 0.3s; }
+        .service-card::after { content: none; }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(29,62,110,0.13); }
-        .service-card:hover::after { transform: scaleX(1); }
         .service-icon { font-size: 2.2rem; margin-bottom: 18px; }
         .service-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 14px; }
         .services-photos { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 40px; }
@@ -224,7 +234,15 @@
             .footer-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
 
             /* VALUES */
-            .values-grid { grid-template-columns: repeat(2,1fr); }
+            .values-top { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
+            .values-bottom { grid-template-columns: 1fr; gap: 14px; }
+            .value-card { padding: 22px 18px 18px; border-radius: 14px; }
+            .value-num { font-size: 2.4rem; top: 12px; right: 14px; }
+            .value-icon { width: 48px; height: 48px; margin-bottom: 12px; font-size: 1.35rem; }
+            .value-card h4 { font-size: 0.98rem; margin-bottom: 8px; }
+            .value-card p { font-size: 0.84rem; line-height: 1.65; }
+            .values-gallery { grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 20px; }
+            .values-gallery img { height: 150px; }
         }
     </style>
 </head>
@@ -303,12 +321,55 @@
             <span class="section-label">Who We Are</span>
             <h2 class="section-title">Our Core Values</h2>
             <div class="divider"></div>
-            <div class="values-grid">
-                <div class="value-card"><div class="value-icon">&#x1F3C5;</div><h4>Professionalism</h4></div>
-                <div class="value-card"><div class="value-icon">&#x1F91D;</div><h4>Integrity</h4></div>
-                <div class="value-card"><div class="value-icon">&#x1F60A;</div><h4>Customer Satisfaction</h4></div>
-                <div class="value-card"><div class="value-icon">&#x23F1;&#xFE0F;</div><h4>Reliability</h4></div>
-                <div class="value-card"><div class="value-icon">&#x1F4A1;</div><h4>Innovation</h4></div>
+            <p class="section-subtitle" style="margin-bottom:36px;">The principles that guide every booking, every trip, and every interaction at Sonny Horizon.</p>
+
+            <!-- Row 1: 3 cards -->
+            <div class="values-top">
+                <div class="value-card vc-teal">
+                    <span class="value-num">01</span>
+                    <div class="value-icon">&#x1F3C5;</div>
+                    <h4>Professionalism</h4>
+                    <p>We approach every client interaction with structure, respect, and a high standard of service.</p>
+                </div>
+                <div class="value-card vc-gold">
+                    <span class="value-num">02</span>
+                    <div class="value-icon">&#x1F91D;</div>
+                    <h4>Integrity</h4>
+                    <p>We communicate honestly and act transparently in every recommendation and booking.</p>
+                </div>
+                <div class="value-card vc-green">
+                    <span class="value-num">03</span>
+                    <div class="value-icon">&#x1F60A;</div>
+                    <h4>Customer Satisfaction</h4>
+                    <p>We focus on delivering a smooth and dependable experience from inquiry to return.</p>
+                </div>
+            </div>
+
+            <!-- Row 2: 2 wider cards -->
+            <div class="values-bottom">
+                <div class="value-card vc-navy">
+                    <span class="value-num">04</span>
+                    <div class="value-icon">&#x23F1;&#xFE0F;</div>
+                    <h4>Reliability</h4>
+                    <p>Clients can count on us for timely responses, organized planning, and consistent support.</p>
+                </div>
+                <div class="value-card vc-coral">
+                    <span class="value-num">05</span>
+                    <div class="value-icon">&#x1F4A1;</div>
+                    <h4>Innovation</h4>
+                    <p>We keep refining travel solutions so each journey remains practical, efficient, and responsive.</p>
+                </div>
+            </div>
+            <div class="values-gallery" aria-label="Core values travel gallery">
+                <img src="../core-values-extra-1.jpg" alt="Travel team planning a journey">
+                <img src="../core-values-extra-3.jpg" alt="Professional travel service at an airport">
+                <img src="../cv-government-new.jpg" alt="Government travel support meeting">
+                <img src="../core-values-extra-5.jpg" alt="Travel consultation and planning at sunset">
+                <img src="../core-values-extra-6.jpg" alt="Family travel moment by the sea">
+                <img src="../core-values-extra-7.jpg" alt="Airport terminal departure scene">
+                <img src="../Tour Guiding.jpg" alt="Tour guiding group travelers">
+                <img src="../cv-flight-new.jpg" alt="Airplane in flight">
+                <img src="../cv-accommodation-new.jpg" alt="Luxury hotel accommodation">
             </div>
         </div>
     </section>
@@ -329,6 +390,15 @@
                         <li>Local and international flights</li>
                         <li>One-way and return trips</li>
                         <li>Multi-city travel arrangements</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#x1F9ED;</div>
+                    <h3>Tour Guiding</h3>
+                    <ul>
+                        <li>Guided local and regional tours</li>
+                        <li>Cultural and sightseeing experiences</li>
+                        <li>Flexible group and private guiding</li>
                     </ul>
                 </div>
                 <div class="service-card">
@@ -466,7 +536,7 @@
             <div class="contact-card">
                 <div class="c-icon">&#x2708;&#xFE0F;</div>
                 <h4>We Arrange</h4>
-                <p>Flights &middot; Hotels<br>Corporate Travel<br>Holiday Packages</p>
+                <p>Flights &middot; Hotels<br>Corporate Travel<br>Holiday Packages &middot; Tour Guiding</p>
             </div>
         </div>
         <button class="btn-primary enquiry-cta" onclick="openEnquiryPopup()">Send an Enquiry</button>
@@ -509,8 +579,10 @@
                 <p class="footer-brand">Sonny Horizon Travel Agency (Pty) Ltd</p>
                 <b><p class="footer-motto">Memories that never fade</p>
                  </b>
+                <p>Office 7, Second Floor, Nelbro Building<br>39B Brown Street, Nelspruit 1200</p>
                 <hr>
                 <p>&copy; 2026 Sonny Horizon Travel Agency (Pty) Ltd &nbsp;&middot;&nbsp; Reg: 2026/295750/07 &nbsp;&middot;&nbsp; Mbombela, Mpumalanga</p>
+                <p style="margin-top:8px;font-size:0.78rem;color:#7ab934;">Developed by <strong>KAYISE IT</strong></p>
             </div>
             <div class="footer-logo-col">
                 <img src="../logo.png" alt="Sonny Horizon Travel Agency" class="footer-logo-img">
